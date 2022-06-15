@@ -35,7 +35,7 @@ reserve work can't use as variable or other name in js
     Number.MAX_VALUE, Number.MIN_SAFE_INTEGER
     "arfna"*2 = NaN 
     10/0 = Infinity
-    34.toFixed(2) = eita doshomit ber kore dekhai 
+    34.toFixed(2) = eita doshomit ber kore dekhai //343.33
     Number.NaN("3434"); = not a number check 
     Number object diye bibino type e convert korte pari onno data ke 
     console.log("2"+2) // 22 string 
@@ -112,7 +112,7 @@ eita run hole direct value ta cole asbe
     Math.round(342.2) = 342 
     math.abs(-23) / 23 alway positive Number,
     Math.min(34,434,34) 
-    math.pow(2,3) / 8
+    math.pow(2,3) / 8 3**2;
     floor(x),max(x, y, z, ..., n),sqrt(x),trunc(x) = inBuild function 
     w3school math reference dekh
     Math.ceil(Math.random()*10) = 1-10 rendom 
@@ -120,7 +120,7 @@ eita run hole direct value ta cole asbe
     Math.floor(Math.random() * 10+1);
     // get value of min-to max range
     function getRndInteger(min, max) {
-        return Math.floor(Math.random() * (max - min) ) + min;
+        return Math.ceil(Math.random() * (max - min) ) + min;
       }
       function getRndInteger(min, max) {
         return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -168,6 +168,11 @@ if(num){
     num = num;
 }
 
+//   Type check of value of date 
+function isDate(myDate) {
+    return myDate.constructor === Date;
+  }
+
 condition apply advance = ((true && true && false) || (true && true))
 
 
@@ -185,7 +190,8 @@ same code run krte parbo multi condition diye
     value = 0;
     // switch(value)
     // switch(true)
-    switch (let value = 0) {
+    // switch (let value = 0) {
+    switch (0) {
         case 0:
         // case value>0: switch must run 
         // case true:
@@ -394,9 +400,12 @@ while(true){
     Array(2,3,4,5,34); [3,43,5,65,54]; [334,[343,3434,344,[343,32,1]]]
 
     arr[0] = "change"; multi array,single array,
+    let result = JSON.stringify([1,2,3])===JSON.stringify([1,2,3]);
+    console.log(result)
 // 043. JS Array Declaration | JS All You Need to Know | JS Bangla Tutorials
-    array loop can be  
+    array loop can be,array is iterable   
 // 044. JS Array Traversing | JS All You Need to Know | JS Bangla Tutorials
+    array looping krte pari array.length diye OR(foreach,map,for of,in diye);
 
 // 045. Array Insert Remove and Replace | JS All You Need to Know | JS Bangla Tutorials
     arr.push(value) = last push,
@@ -405,25 +414,153 @@ while(true){
     arr.find((value, index, array) => {})
     arr.splice,
     arr.join,
+
+    //Data found from Array, 
+
+const arr = [3,32,43,5,6];
+let Find = 5;
+let isFound = false;
+
+for(let i=0; i<arr.length;i++){
+    if(arr[i]=== Find){
+        console.log('Data Found in' + i + "Index");
+        isFound = true;
+        break;
+    }
+}
+
+if(!isFound){
+    console.log("data not found");
+}
+
 // 047. Multidimensional Array | JS All You Need to Know | JS Bangla Tutorials
+/* 
+eita hocche array bitor array niye kaj kore 
+*/
+// Multidimentional array looping 
 
+const arr = [
+    [3, 4, 5, 6],
+    [3, 4, 56, 6, 4],
+    [3, 4, 67, 75, 4],
+  ];
+  
+  for(let i= 0; i<arr.length; i++){
+      for(let j=0; j<arr[i].length; j++){
+          console.log(`Index Of ${i}${j} = ${arr[i][j]}`)
+      }
+  }
 // 048. JS Reverse An Array | JS All You Need to Know | JS Bangla Tutorials
+//Array Reversing 
 
+const arr = [23,23,3,4,5,45,4,3,4];
+
+for(let i = arr.length-1; i>=0; i--){
+    console.log(arr[i])
+}
+// Array which will reverse and sort 
+
+function ArrayReverseAndSort(arr){
+    let sortArray = arr.sort((a, b) => {b-a})
+    return sortArray;
+}
+
+console.log(ArrayReverseAndSort([3,4,5,6,7,5,4]));
+
+// Array Reverse by modified array 
+
+const arr = [2,3,4,5,6];
+
+for(let i = 0; i<(arr.length/2);i++){
+    let temp = arr[i];
+    arr[i] = arr[arr.length -1- i]
+    arr[arr.length -1- i] = temp;
+}
+
+console.log(arr)
 // 049. JS Array Methods | JS All You Need to Know | JS Bangla Tutorials
 
+fill,concat,isArray,join,
+//Array run with reference 
+
+const a = [2,3];
+let b = a;
+b[0] =5;
+console.log(a)
+
+//Array run with reference but copy 
+
+const a = [2,3];
+let b = Array.from(a);
+// let b = [...a];
+b[0] =5;
+console.log(a)
+console.log(b)
+
 // 050. JS Object | JS All You Need to Know | JS Bangla Tutorials
+/* 
+object hocce bostu kono and tar noun,adjective(property),verb hocche (methods);
 
-// 051. JS Object Literal vs Constructor | JS All You Need to Know | JS Bangla Tutorials
-
+*/
+//! 051. JS Object Literal vs Constructor | JS All You Need to Know | JS Bangla Tutorials
+{} = literal value  Object() eita constructor
 // 052. Accessing Object Properties in Javascript | JS All You Need To Know | JS Bangla Tutorials
+const myObj = {
+    name:'arfan',
+    phone:34234,
+    address:'72/1 sk das road',
+}
+let myName = 'name';
+
+myObj.name;
+myObj.name = 'shuvo' //changing
+myObj['name'];
+myObj.myName //eita error asbe 
+myObj[myName];
 
 // 053. Setting Object Properties in Javascript | JS All You Need To Know | JS Bangla Tutorials
+const myObj = {
+    name:'arfan khan',
+    phone:234232,
+    address:'3432 3434 dfadf dfadf',
+}
+myObj.name = "shuvo khan" //changin value of obj
+delete myObj.address; //address delete hoye jabe,
+myObj.fevColor = 'blue'; //update new data 
+
+console.log(myObj)
 
 // 054. Remove Object Properties in Javascript | JS All You Need To Know | JS Bangla Tutorials
 
 // 055. Comparing Two Objects in Javascript | JS All You Need To Know | JS Bangla Tutorials
+const a = {name:'arfan'};
+const b = {name:'arfan'};
+console.log(a===b); //false;
+console.log(JSON.stringify(a)===JSON.stringify(b)); //true;
 
 // 056. Iterate Object Properties in Javascript | JS All You Need To Know | JS Bangla Tutorials
+
+const person = {
+    name:'arfan khan',
+    phone:324234,
+    address:'72/1 sk-das Dhaka,Bangladesh',
+    code:54,
+}
+
+/*  for in / convert into array and iterated */
+
+//for in 
+for(let index in person){
+    console.log(index,":",person[index])
+}
+
+let ArrayPersonValue = Object.values(person);
+let ArrayPersonKeys = Object.keys(person);
+let ArrayPersonObjectArray = Object.entries(person);
+console.log(ArrayPersonValue)
+console.log(ArrayPersonKeys)
+console.log(ArrayPersonObjectArray)
+
 
 // 057. Object Methods in Javascript | JS All You Need To Know | JS Bangla Tutorials
 
@@ -457,25 +594,72 @@ function er bitor function shudo tar bitor e kaj krbe
 /* 
 *)function paremeter change kore kaj kora jai
 *)perameter hishebe array k loop korte pari
+*)param hisebe j kno kichu pass krte pari (array,function,object,null,etc all data type )
 */
 
 function Adding(a,b){
-    return a+b;
+    return a+b; //expression 
 }
+
+function addArray(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    return sum;
+  }
+  
+  console.log(addArray([2, 5]));
 
 
 
 // 062. Argument Object in Javascript | JS All You Need To Know | JS Bangla Tutorials
+/* 
+-)function er bitor this window k mean krbe but kno object er bitor direct child fun parent object k mean krbe 
+-)argument, rest operator dite pari 
+-)function e return na krle function undefined hobe but tar console and code run krbe just return krbe na ,
+*/
 function display(){
     let param = [...new Set(Object.values(arguments))];
     console.log(param);
 }
 console.log(display(1,2,2,34,4));
 
+function display(){
+    console.log(arguments[1]);
+    console.log(arguments);
+}
+
+console.log(display(1,3,4,3,4,3,4))
+
+function myFunc(...param){
+    console.log(Array.isArray(param));
+}
+
+console.log(myFunc(3,33,3,3,2,3));
+
+
+function greeting(greet,name) {
+   
+    function  firstName() {
+        if(name){
+            return name.split(" ")[0];
+        }
+        else{
+            return "";
+        }
+    }
+
+    let message = `${greet} ${firstName()}`;
+    return message;
+
+}
+
+console.log(greeting('hello','arfan khan'));
 // 063. Return Something from a Function in Javascript | JS All You Need To Know | JS Bangla Tutorials
 
 *)function er bitor kichu return krle ta function er bitor joma hobe and ta console kre dekha lag be 
-*)return hishebe amr (function,value,expression,component)
+*)return hishebe amr (function,value(array, all data type ),expression,component)
 dite pari 
 
 // 064. Function Expression in Javascript | JS All You Need To Know | JS Bangla Tutorials
@@ -487,7 +671,53 @@ funciton er bitor function lekhle
 funciton er scope hocche tar bitor er jinis return chara bahir access kora jabe na 
 but bahir theke niye kaj krte parbe 
 
+function name01() {
+    let name01Var = 'name01';
+    function name02() {
+        let name02Var = 'name02';
+        console.log(name02Var);
+        console.log(name01Var);
+        return "";
+        
+    }
+    return name02;
+    // console.log(name02Var);
+    
+}
+
+console.log(name01()())
+//changing number by calling function 
+let number = 0;
+
+function changeNumber() {
+    number = 10;
+}
+
+console.log(number)
+changeNumber();
+console.log(number)
+
+//setinterval  = 
+let n = 0;
+setInterval(()=>{
+    n++;
+    console.log('setInterVal running',n);
+},1000)
+
+//function call changing value 
+let n = 0;
+
+function name() {
+    n++;
+    console.log(n);
+}
+
+console.log(name());
+console.log(name());
+
+
 // 067. What is Functional Programming in Javascript | JS All You Need To Know | JS Bangla Tutorials
+
 
 
 // 068. Pure Functions in Javascript | JS All You Need To Know | JS Bangla Tutorials
@@ -499,10 +729,46 @@ first class funciton hocche (se var,parameter,object,array,other function er bit
 
 // 070. Higher Order Function in Javascript | JS All You Need To Know | JS Bangla Tutorials
 ei function e amra funciton param hisebe pass and store krbo 
-// 071. Closure First Look in Javascript | JS All You Need To Know | JS Bangla Tutorials
+
+function add(a,b){
+    return a+b;
+}
+
+function multiplication(a,b,c,myFunc){
+    return c+ myFunc(a,b);
+}
+
+console.log(multiplication(1,2,3,add))
+
+
+//Higher Order function 
+function  add(a,b) {
+    return a+b;
+}
+
+function multiplication(a,b,myFunc) {
+    let c = a+b;
+    let d = a-b;
+
+    function  multi() {
+        let e = myFunc(a,b);
+        return c*d*e;
+    }
+
+    return multi()
+
+
+}
+
+console.log(multiplication(2,3,add))
+
+//! 071. Closure First Look in Javascript | JS All You Need To Know | JS Bangla Tutorials
 *)closer hocche age tomake bahir call krte hobe bitor pete
 
 // 072. Callback Function in Javascript | JS All You Need To Know | JS Bangla Tutorials
+/* 
+-)callback fun diye user k kichu value pass kore deya hoi kaj krte and tar kaj er upor depend kre take abr return kra hoi 
+*/
 
 callback funciton hocche age kisu data defination funciton k dibe kaj korte and pore seta collect krbe
 
@@ -553,6 +819,12 @@ console.log(myForeach([2,3,4,5,6,54,4],(v,index,arr)=>{
 }));
 
 console.log(sum);
+/* 
+Debugging tricks = colsole.log krbo , debug tools diye stepping krbo ,
+chorm diye debug ,
+function call na krle console e function dekhabe and value return na thakle undefined
+*/
+
 // 073. Foreach Implementation in Javascript | JS All You Need To Know | JS Bangla Tutorials
 
 // 074. Map Function in Javascript | JS All You Need To Know | JS Bangla Tutorials
@@ -579,13 +851,36 @@ console.log(myFind(myArray,(v)=>{
     return v>10;
 }));
 // 078. Sort, Some and Every Function in Javascript | JS All You Need To Know | JS Bangla Tutorials
+/* 
+sort diye - asc/dsc order e sort kora hoi,
+some - eita || er moto kaj krbe and true return krbe 
+every - sob true hole true ,
+*/
 
 // 079. Return Function from Another Function in Javascript | JS All You Need To Know | JS Bangla
+
+
 
 // 080. Recursive Function in Javascript | JS All You Need To Know | JS Bangla Tutorials
 
 // 081. Currying in Javascript | JS All You Need To Know | JS Bangla Tutorials
+function displya(){
+    return function add(){
+        return funciton min(){
+            return "hello";
+        }
+    }
+}
 
+function name() {
+    return function name1(){
+        return function name2() {
+            return 'hello curring';
+        }
+    }
+}
+
+console.log(name()()())
 // 082. Function Composition in Javascript | JS All You Need To Know | JS Bangla Tutorials
 
 // 083. Javascript Engine | JS All You Need To Know | JS Bangla Tutorials
@@ -990,44 +1285,344 @@ getIphone(false)
 // 193. Async Generators in Javascript | JS All You Need To Know | JS Bangla Tutorials
 
 // 194. Introduction to DOM | JS All You Need To Know | JS Bangla Tutorials
-
+/* 
+eita frontend dev e use hoi and eita diye html er element manipulation(add element,  remove,modified, anything can be manipulate) kre jai 
+eita html tag gulo use kore ekta data-structure e sajai dom - eita tree dataStructure 
+-)dom tree notice krte take dom e kno event or kichu diye manipute hoise ki na 
+-)jmn html tag e new tag add kore amr browser reload kori change dikhi 
+html tag gulo just simple string egulo js dom e convert kore kaj kroe, proti tag element k node e convert kroe dom tree te sajai 
+dom e 4 doroner node = element node, text node(child Element),attribute node,comment node 
+*/
 // 195. Window Object in Javascript | JS All You Need To Know | JS Bangla Tutorials
+*)mozila dev explore krbo 
+*)browser er protita tab ek ekta window and tara alada eke opor theke 
+*)window object er shate sob kichu attached kora and var use krle kaj kore 
+*)window bitor document property niye khelai dom manipulation 
+*)dom manipulation e document hocche window obje er child and js e window sob dore rakhe
 
+console.log(window.document.location) //document.location dileo hobe krn browser bydefault window object e run kre 
 // 196. Document Object in Javascript | JS All You Need To Know | JS Bangla Tutorials
 
+eita dom er sob kichu thakar parent object ja diyei dom manipulation kora hoi 
+eita amdr sompurno webhmlt tag k dhore rakhe tar bitor ,
+eita full html er selector ,
+
+/* 
+-)document er bitor html element er sob info ase and dom er sob kaj document object diye hoi jar parent window object 
+*/
+window.document /document krbo console.dir(document); full info pabo 
+document.getElementById('idName')//class,tag,name, diye select krte pari
 // 197. Selectors Part One in Javascript | JS All You Need To Know | JS Bangla Tutorials
+eita diye html kno j ekta tab manipulation krbo seta select krbo 
+document.getElementById('idname')
+document.getElementsByClassName('className'); //eita htmlcollection dibe and array krte hobe 
+document.getElementsByName('name-Attribute'); //eitao class er moti html collection dibe 
+document.getElementsByTagName('tagName') // same work to upper,
+eita carta html collection diye kaj  kore, childhtml Collection 
+
+// (querySelector,querySelectorAll('#id,.class,tag,[attr]'));
+
+console log kre dekhbo sob kichu dorse kina 
+document.querySelector('.class') // #id [attr] tag eita single ekta select krbe 
+document.querySelectorAll('.class') //eita akadik select krbe and eita childNode pass krbe loop krte hobe array convert kore 
+
+// advance selection er bitor ache, dom traversing e 
+
+let li = document.getElementById('single-list');
+li.parentElement = tar parent element dibe console e,
+li.children = tar children gulo dibe ( children thakle Htmlcollection dibe eita)
+li.nextElementSibling =  next single bhai k dibe ,
+li.previousElementSibling = previous siblin bhai k dibe 
+li.firstElementChild = first child tag dibe
+li.lastElementChild = last child tag dibe 
+//note element bad dile shudu text gulo dibe 
+//kno ekta selector k console.dir krle tar  bitor ki ase ki krte parbo sob bole dibe 
+list.classList.add('hello') // eta diye new class add krte pari
+
+
+/* 
+id,class,tag,querySelector, html tag element gulo select  krte parbo 
+tar bitor test pete or modified krte .innerHtml dibo 
+input or form er bitor input er value pete input.value,
+attribute add or modified krte , img.src = 'value';
+selector.addEventListener('type', listener function, options) ; 
+event (click,hover,kyepress,change,mouseenter.mouse)
+*/
+
+html tag element gulo dorar jonno selector use krbo and tarpor ja modified er dorkar krbo 
+
 
 // 198. Selectors Part Two in Javascript | JS All You Need To Know | JS Bangla Tutorials
+/* 
+single ta use krle 1st tai select krbe and all ta select krle sob select hobe 
+document.querySelector('#id'/'.class'/'tagName') / eita 1st element tai niye ase only
+*/
 
+document.querySelectorAll('#id'); eita sob gulo select kre 
 // 199. GetElemetns Method vs Query Selector in Javascript | JS All You Need To Know | JS Bangla
+/* 
+1)queryselector use kre node Element dei and getElement use kore htmlElement,
+2)getElement better perform (eita specifiq node reuturn kre )
+-)query diye sob somoy kaj nao hote pare but getElement kaj krbei 
+*/
+
+document.querySelectorAll('.class').constructor.name() eita diye tar proto dekhbo 
+document.getElementById('id').constructor.name() eita diye tar proto dekhbo 
 
 // 200. How to Traverse DOM Elements in Javascript | JS All You Need To Know | JS Bangla Tutorials
+/* 
+eita hocche kno ekta selector er parentElement,childElement,nextSibling,previousElementSibling ki egulo ber krte pari  
+*/
+
+// advance selection er bitor ache, dom traversing e 
+
+let li = document.getElementById('single-list');
+li.parentElement = tar parent element dibe console e,
+li.children = tar children gulo dibe ( children thakle Htmlcollection dibe eita)
+li.nextElementSibling =  next single bhai k dibe ,
+li.previousElementSibling = previous siblin bhai k dibe 
+li.firstElementChild = first child tag dibe
+li.lastElementChild = last child tag dibe 
+//note element bad dile shudu text gulo dibe 
+//kno ekta selector k console.dir krle tar  bitor ki ase ki krte parbo sob bole dibe 
+list.classList.add('hello') // eta diye new class add krte pari
+
+jodi loop krte cai kno element er child e seta array te convert krte hobe,
+noito array loop methods kaj korbe na,
+
 
 // 201. How to Loop Throw HTML Collections in Javascript | JS All You Need To Know | JS Bangla
 
+
+let list = document.getElementById('list').children;
+
+[...list].forEach((elem,index)=>{
+    elem.innerHTML = `${index} ${elem.innerHTML}`;
+    elem.style.color = "green";
+})
+
 // 202. Create DOM Elements in Javascript | JS All You Need To Know | JS Bangla Tutorials
+
+function createElement(tagName, className, innerHtml) {
+    let tag = document.createElement(tagName);
+    tag.innerHTML = innerHtml;
+    tag.setAttribute("class", className);
+    // tag.classList.add("adnan");
+    return tag;
+}
+
+let p = createElement('p','arfan1 arfan2','arfan khan is a good boy');
+console.log(p)
+
+function createElement(tagName, InnerHtml, className) {
+    let tag = document.createElement(tagName);
+    tag.innerHTML = InnerHtml;
+    tag.setAttribute('class',className);
+    console.log(tag)
+}
+
+createElement('p','arfan ','hello')
+
+//appending child in parent 
+
+let list = document.getElementById('list');
+
+append(list,p)
+
+function append(parent,child){
+    parent.appendChild(child);
+}
+
+function append(parent,child){
+    child.forEach((elem)=>{
+        parent.appendChild(elem);
+    })
+}
+
+append(div,[p1,p2]);
+
+/* 
+append child niye kaj krbo append niye na,
+*/
+let list = document.getElementById('list');
+list.className = 'list3' //ager class gulo cole giye just eita add hobe 
+
+let list = document.getElementById('list').children;
+
+[...list].forEach(v=>{
+    v.innerHTML = "shuvo";
+})
+
+
+let li = document.getElementById('list');
+li.className = 'list-items list-items-2';
+hello.classList = ['arfan shuvo']; // kaj krbe ,
+li.setAttribute('class','class1 class2');
+li.innerHTML = 'value of inner html ';
+
+list.appendChild(li)
+
+
+
 
 // 203. Insert Adjacent Element in Javascript | JS All You Need To Know | JS Bangla Tutorials
 
+/* 
+after = tag er bahir e, before bitor e 
+eita append er kaj kore kno tag er bitor ba bahir age ba last e 
+*/
+list.insertAdjacentElement('beforebegin',div); //bahir or list element show krbe 
+list.insertAdjacentElement('afterbegin',div); //bahir or list element show krbe 
+list.insertAdjacentElement('afterend',div); //bitor show 
+list.insertAdjacentElement('beforeend',div); //bitor
+
+document.getElementById('id').insertAdjacentElement('beforeEnd/afterEnd/','p')
+
 // 204. Update & Remove any DOM Elements in Javascript | JS All You Need To Know | JS Bangla Tutorials
+/* 
+eita kno ekta kichu k single vabe select kore remove() function marle remove hobe,
+update krte caileo same select kre krte hobe 
+
+*/
+list.remove(); //remove hoye jabe
+list.innerHTML = 'new Value'
+list.innerHTML = 'new Value' + list.innerHTML; //eita ager+ new add krbe 
+input.value = 'value pass in input';
+input.value; // retrive input value ; input.type,input.value, input.name,
+
+setTimeout(() => {
+    list.remove();
+    hello.innerHTML = `${hello.innerHTML} modified`;
+    //5 sec por ja khushi krte pari 
+}, 5000);
+
+/* 
+.remove() = diye select kroe remove krbo 
+.innerHTML = diye updatekrbo , style/ classLIst add krte pari 
+
+*/
 
 // 205. How to Clone Node Include It's Child Elements in Javascript | JS All You Need To Know
+/* 
+eita diye kno  seletor k clone kre hoi true dile full clone hobe 
+*/
+
+let list = document.getElementById('list');
+let cloneList = list.cloneNode(true) //full bitor er child soho clone hobe 
+list.cloneNode(false) //defalut false eita use main tag tai clone hobe tar attr niye 
+
+let cloneBtn = document.getElementById('clone');
+let list = document.getElementById('list');
+cloneBtn.addEventListener('click',function(event) {
+    let listLastChild = list.lastElementChild.cloneNode();
+    listLastChild.innerHTML = 'hello'
+    list.appendChild(listLastChild);
+})
+
+
+
 
 // 206. How to Deal with Attributes in DOM Manipulation in Javascript | JS All You Need To Know
+/* 
+eita diye attribute ki ase and new attribute set krte pari 
+*/
+let hello = document.getElementById('hello');
+hello.setAttribute('name','value value2');
+hello.id = 'value';
+hello.className = 'className';
+list.setAttribute('class','value');
+list.getAttribute(); //tar sob attr array te list asbe,
+list.getAttributeNode('class'); //eita class er bitor ki ase dekhabe 
+list.attributes // eita ekta object dibe tar attr sob er property er 
+list.classList.add('new class');
+
+let newAttr = document.createAttribute('name');
+newAttr.value = 'arfan khan';
+list.setAttributeNode(newAttr) ; //hard triks 
 
 // 207. Styling DOM in Javascript | JS All You Need To Know | JS Bangla Tutorials
+/* 
+j kno ekta html k select kroe tar bitor style property diye style add kore ,
+*/
 
+document.body.style.background = 'red'
+let hello = document.getElementById('hello');
+
+hello.style = eita all style show krbe 
+
+hello.style.backgroundColor = 'red' / 'rgb' / '#fff';
+
+let styleObj = {
+    backgroundColor:red,
+    color:green
+}
+
+Object.assign(hello.style,styleObj); //eita append krbe style er bitor
+list = document.getElementById('list').childre
+[...list].forEach((li)=>{
+    Object.assign(li.style,styleObj) //loop calaiye sob child e obj style add kroe 
+})
 // 208. Introduction to Event in DOM Manupulation in Javascript | JS All You Need To Know | JS Bangla
+/* 
+click,mouse,hover,changing value,wheen,kye press, submit form 
+kichu ekta hole kichu ekta gotbe etai event 
+-)kichu ekta ghotle ami j kichu ekta ghotate cai setai event handing
+*/
+
+event er bitor this hocche tar selector  and event er bitor target property vitor onk kichu ache kaj korar ,
+event.target.value only input er guloi kaj  krbe 
+let list = document.getElementById('form').firstElementChild;
+list.addEventListener('mouseenter',function(e) {
+    console.log(e.target.value)
+    //event e kaj krbo target er bitor 
+})
+
+event j selector e lababo sudu setai kaj krbe ,
+
 
 // 209. Event Delegation in DOM Manipulation | JS All You Need To Know | JS Bangla Tutorials
+/* 
+eita diye kno ekta parent e event lagiye child e manipulation krte pari
+event lagabo parent ei but run krbe seta child er upor ,
+*/
+
+let list = document.getElementById('list');
+
+list.addEventListener('click',function(e) {
+    if(this.contains(e.target)){
+        e.target.remove()
+    }
+})
 
 // 210. Input Box Event Handling in Javascript | JS All You Need To Know | JS Bangla Tutorials
+input niye kaj kora, input ouput show in browser,
+eita input er vitor e.target hocche jtai event lagano seta targer, tar property .value 
 
 // 211. Check Box Event Handling in Javascript | JS All You Need To Know | JS Bangla Tutorials
 
 // 212. List and Input Event Handler in Javascript | JS All You Need To Know | JS Bangla Tutorials
 
 // 213. Form Handling in DOM in Javascript | JS All You Need To Know | JS Bangla Tutorials
+front end e jodi data handle na kore taile eitai shudu form validation ta dekhbo 
+data handleing backend dekhbe but jodi single page application banai taile front end data hangle kre
+obj krbe 
+-)page refresh jodi hoi seta backend sekhbe but na krte caile refresh seta front end dekhbe 
+
+let form = document.querySelector('form');
+
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    let formData = {};
+
+    [...this.elements].forEach((elem)=>{
+        if(elem.type !== 'submit'){
+            formData[elem.name] = elem.value;
+        }
+        
+    })
+    this.reset();
+    console.log(formData)
+})
 
 // 214. Form Validation in DOM in Javascript | JS All You Need To Know | JS Bangla Tutorials
 

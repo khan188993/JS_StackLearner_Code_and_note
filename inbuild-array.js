@@ -14,7 +14,7 @@ console.log([...concat1, ...concat2, ...[3434, 34]]);
 console.log("........copyWithin........");
 const copyWithin = ["arfan", "shuvo", "fahim", "adnan", "shanto"];
 
-var result = copyWithin.copyWithin(1, 1, 2);
+var result = copyWithin.copyWithin(1, 1, 3);
 console.log(result);
 
 // entries()	Returns a key/value pair Array Iteration Object
@@ -197,6 +197,7 @@ console.log(
 console.log("........splice........"); // modified kore dei
 const splice = ["arfan", "shuvo", "arfan", "fahim", "shanto"];
 var result = splice.splice(0, 1); //copy Array  0(bahir) e kop, 1 e kop
+var result = splice.splice(0, 1,44,43); // array kete ber kore new kichu add kora ,
 
 console.log(splice, result);
 
